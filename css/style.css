@@ -642,3 +642,31 @@ a {
     opacity: 1;
   }
 }
+
+
+.errorField {
+  color: red !important;
+}
+.errorField input {
+  border: 3px solid red !important;
+}
+
+.errorField::after {
+  opacity: 1 !important;
+}
+
+.order .container form.order__form::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("../error.svg");
+  background-repeat: no-repeat    ;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 47px;
+  right: 100px;
+  opacity: 0;
+  transition: 0.5s ease;
+}
