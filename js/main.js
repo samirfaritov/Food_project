@@ -91,22 +91,40 @@ let patterns = {
     email: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ig
 }
 
-let inps = document.querySelectorAll('.modal__input')
+let inps = document.querySelector('.name')
+let inp = document.querySelector('.phone')
 let form = document.querySelector('.order__form')
 
 
-inps.forEach(inp => {
-    inp.onkeyup = () => {
+
+    inps.onkeyup = () => {
         console.log(
-            patterns[inp.name].test(inp.value)
+            patterns[inps.name].test(inps.value)
             );
-            if (patterns[inp.name].test(inp.value)) {
-                inp.parentElement.classList.remove('errorField')
+            if (patterns[inps.name].test(inps.value)) {
+                inps.parentElement.classList.remove('errorField')
             } else {
-                inp.parentElement.classList.add('errorField')
+                inps.parentElement.classList.add('errorField')
+            }
         }
+
+        // inp.onkeyup = () => {
+            //     console.log(
+                //         patterns[phone].test(inp.value)
+                //         );
+                //         if (patterns.phone.test(inp.value)) {
+                    //             inp.parentElement.classList.remove('errorField')
+                    //         } else {
+                        //             inp.parentElement.classList.add('errorField')
+        //     }
+        // }
+        
+        if (inp === patterns.phone) {
+            inp.parentElement.classList.add('errorField')
+        } else {
+            
+            inp.parentElement.classList.remove('errorField')
     }
-})
 
 
 form.onsubmit = (e) => {
